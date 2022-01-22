@@ -1,53 +1,60 @@
 <template>
   <div class="container">
-    <Header title="Task Tracker"/>
-    <Tasks :tasks="tasks"/>
+    <Header title="Task Tracker" />
+    <Tasks @delete-task="deleteTask" :tasks="tasks" />
   </div>
 </template>
 
 <script>
-import Header from './components/Header';
-import Tasks from './components/Tasks';
+import Header from "./components/Header";
+import Tasks from "./components/Tasks";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
     Header,
-    Tasks
+    Tasks,
   },
   data() {
     return {
-      tasks: []
-    }
+      tasks: [],
+    };
+  },
+  methods: {
+    deleteTask(id) {
+      if (confirm("Are you sure?")) {
+        this.tasks = this.tasks.filter((task) => task.id !== id);
+      }
+      alert("Task deleted");
+    },
   },
   created() {
     this.tasks = [
       {
         id: 1,
-        text: 'Doctors Appointment',
-        day: 'March 1st at 2:30pm',
+        text: "Doctors Appointment",
+        day: "March 1st at 2:30pm",
         reminder: true,
       },
       {
         id: 2,
-        text: 'Meeting at School',
-        day: 'March 3rd at 1:30pm',
+        text: "Meeting at School",
+        day: "March 3rd at 1:30pm",
         reminder: false,
       },
       {
         id: 3,
-        text: 'Food Shopping',
-        day: 'April 2nd at 3pm',
-        reminder: false
-      }
-    ]
-  }
-
-}
+        text: "Food Shopping",
+        day: "April 2nd at 3pm",
+        reminder: false,
+      },
+    ];
+  },
+};
 </script>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
 
 * {
   box-sizing: border-box;
@@ -56,7 +63,7 @@ export default {
 }
 
 body {
-  font-family: 'Lato', sans-serif;
+  font-family: "Lato", sans-serif;
 }
 
 .container {
