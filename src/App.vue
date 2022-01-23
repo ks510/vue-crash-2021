@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <Header title="Task Tracker" />
-    <AddTask />
+    <AddTask @add-task="addTask" />
     <Tasks
       @toggle-reminder="toggleReminder"
       @delete-task="deleteTask"
@@ -11,12 +11,12 @@
 </template>
 
 <script>
-import Header from "./components/Header";
-import Tasks from "./components/Tasks";
-import AddTask from "./components/AddTask";
+import Header from './components/Header';
+import Tasks from './components/Tasks';
+import AddTask from './components/AddTask';
 
 export default {
-  name: "App",
+  name: 'App',
   components: {
     Header,
     Tasks,
@@ -28,8 +28,13 @@ export default {
     };
   },
   methods: {
+    addTask(task) {
+      console.log(task);
+      this.task = [...this.tasks, task];
+      console.log(this.tasks);
+    },
     deleteTask(id) {
-      if (confirm("Are you sure?")) {
+      if (confirm('Are you sure?')) {
         this.tasks = this.tasks.filter((task) => task.id !== id);
       }
     },
@@ -43,20 +48,20 @@ export default {
     this.tasks = [
       {
         id: 1,
-        text: "Doctors Appointment",
-        day: "March 1st at 2:30pm",
+        text: 'Doctors Appointment',
+        day: 'March 1st at 2:30pm',
         reminder: true,
       },
       {
         id: 2,
-        text: "Meeting at School",
-        day: "March 3rd at 1:30pm",
+        text: 'Meeting at School',
+        day: 'March 3rd at 1:30pm',
         reminder: false,
       },
       {
         id: 3,
-        text: "Food Shopping",
-        day: "April 2nd at 3pm",
+        text: 'Food Shopping',
+        day: 'April 2nd at 3pm',
         reminder: false,
       },
     ];
@@ -65,7 +70,7 @@ export default {
 </script>
 
 <style>
-@import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
 
 * {
   box-sizing: border-box;
@@ -74,7 +79,7 @@ export default {
 }
 
 body {
-  font-family: "Lato", sans-serif;
+  font-family: 'Lato', sans-serif;
 }
 
 .container {

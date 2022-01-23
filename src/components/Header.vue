@@ -6,10 +6,10 @@
 </template>
 
 <script>
-import Button from "./Button";
+import Button from './Button';
 
 export default {
-  name: "Header",
+  name: 'Header',
   props: {
     title: String,
   },

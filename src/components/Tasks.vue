@@ -9,16 +9,16 @@
 </template>
 
 <script>
-import Task from "./Task";
+import Task from './Task';
 
 export default {
-  name: "Tasks",
+  name: 'Tasks',
   props: {
     tasks: Array,
   },
   components: {
     Task,
   },
-  emits: ["delete-task", "toggle-reminder"],
+  emits: ['delete-task', 'toggle-reminder'],
 };
 </script>
