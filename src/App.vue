@@ -1,6 +1,10 @@
 <template>
   <div class="container">
-    <Header @toggle-add-task="toggleAddTask" title="Task Tracker" />
+    <Header
+      @toggle-add-task="toggleAddTask"
+      title="Task Tracker"
+      :showAddTask="showAddTask"
+    />
     <div v-show="showAddTask">
       <AddTask @add-task="addTask" />
     </div>
@@ -82,6 +86,17 @@ export default {
   padding: 0;
 }
 
+html {
+  background: rgb(125, 227, 252);
+  background: linear-gradient(
+    156deg,
+    rgba(125, 227, 252, 1) 0%,
+    rgba(24, 108, 232, 1) 100%
+  );
+  height: 100%;
+  width: 100%;
+}
+
 body {
   font-family: 'Lato', sans-serif;
 }
@@ -94,6 +109,10 @@ body {
   border: 1px solid steelblue;
   padding: 30px;
   border-radius: 5px;
+  background-color: white;
+  box-shadow: 1px 21px 33px -11px rgba(0, 0, 0, 0.39);
+  -webkit-box-shadow: 1px 21px 33px -11px rgba(0, 0, 0, 0.39);
+  -moz-box-shadow: 1px 21px 33px -11px rgba(0, 0, 0, 0.39);
 }
 
 .btn {
