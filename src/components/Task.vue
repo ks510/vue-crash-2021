@@ -22,16 +22,16 @@ export default {
 
 <style scoped>
 .fas {
-  color: red;
+  color: rgb(255, 80, 80);
 }
 .task {
-  background: #f4f4f4;
+  background: #e3efff;
   margin: 5px;
   padding: 10px 20px;
   cursor: pointer;
 }
 .task.reminder {
-  border-left: 5px solid green;
+  border-left: 5px solid rgb(67, 173, 133);
 }
 .task h3 {
   display: flex;

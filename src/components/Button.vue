@@ -18,3 +18,10 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.btn {
+  border-radius: 20px;
+  padding: 12px 30px;
+}
+</style>

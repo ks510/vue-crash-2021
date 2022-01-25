@@ -99,6 +99,7 @@ html {
 
 body {
   font-family: 'Lato', sans-serif;
+  color: rgb(15, 43, 75);
 }
 
 .container {
@@ -106,13 +107,13 @@ body {
   margin: 30px auto;
   overflow: auto;
   min-height: 300px;
-  border: 1px solid steelblue;
-  padding: 30px;
-  border-radius: 5px;
-  background-color: white;
-  box-shadow: 1px 21px 33px -11px rgba(0, 0, 0, 0.39);
-  -webkit-box-shadow: 1px 21px 33px -11px rgba(0, 0, 0, 0.39);
-  -moz-box-shadow: 1px 21px 33px -11px rgba(0, 0, 0, 0.39);
+  padding: 40px;
+  background: rgb(240, 247, 255);
+  border-radius: 25px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 1px 21px 33px -11px rgba(0, 22, 41, 0.29);
+  -webkit-box-shadow: 1px 21px 33px -11px rgba(0, 22, 41, 0.29);
+  -moz-box-shadow: 1px 21px 33px -11px rgba(0, 22, 41, 0.29);
 }
 
 .btn {

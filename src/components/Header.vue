@@ -4,7 +4,7 @@
     <Button
       @btn-click="$emit('toggle-add-task')"
       :text="showAddTask ? 'Close' : 'Add Task'"
-      :color="showAddTask ? 'red' : 'green'"
+      :color="showAddTask ? 'rgb(255, 80, 80)' : 'rgb(67, 173, 133)'"
     />
   </header>
 </template>
