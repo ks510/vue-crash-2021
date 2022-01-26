@@ -112,8 +112,6 @@ body {
   border-radius: 25px;
   border: 1px solid rgba(255, 255, 255, 0.18);
   box-shadow: 1px 21px 33px -11px rgba(0, 22, 41, 0.29);
-  -webkit-box-shadow: 1px 21px 33px -11px rgba(0, 22, 41, 0.29);
-  -moz-box-shadow: 1px 21px 33px -11px rgba(0, 22, 41, 0.29);
 }
 
 .btn {
