@@ -13,6 +13,7 @@
       @delete-task="deleteTask"
       :tasks="tasks"
     />
+    <Footer />
   </div>
 </template>
 
@@ -20,6 +21,7 @@
 import Header from './components/Header';
 import Tasks from './components/Tasks';
 import AddTask from './components/AddTask';
+import Footer from './components/Footer';
 
 export default {
   name: 'App',
@@ -27,6 +29,7 @@ export default {
     Header,
     Tasks,
     AddTask,
+    Footer,
   },
   data() {
     return {
@@ -51,14 +54,38 @@ export default {
 
       this.tasks = [...this.tasks, task];
     },
-    deleteTask(id) {
+    async deleteTask(id) {
       if (confirm('Are you sure?')) {
-        this.tasks = this.tasks.filter((task) => task.id !== id);
+        const response = await fetch(`/api/tasks/${id}`, {
+          method: 'DELETE',
+        });
+        response.status === 200
+          ? (this.tasks = this.tasks.filter((task) => task.id !== id))
+          : alert('Error deleting task');
       }
     },
-    toggleReminder(id) {
+    async toggleReminder(id) {
+      // fetch task to update and make changes to object
+      const taskToToggle = await this.fetchTask(id);
+      const updateTask = {
+        ...taskToToggle,
+        reminder: !taskToToggle.reminder,
+      };
+
+      // send request to update task
+      const response = await fetch(`/api/tasks/${id}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(updateTask),
+      });
+
+      // syncing UI with data from request after updating task
+      const data = await response.json();
+
       this.tasks = this.tasks.map((task) =>
-        task.id === id ? { ...task, reminder: !task.reminder } : task
+        task.id === id ? { ...task, reminder: data.reminder } : task
       );
     },
     async fetchTasks() {

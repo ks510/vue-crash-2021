@@ -16,13 +16,7 @@
       "id": "3",
       "text": "Food shopping",
       "day": "March 7th at 2:00pm",
-      "reminder": false
-    },
-    {
-      "text": "Delete Me",
-      "day": "Okay",
-      "reminder": false,
-      "id": "NrfDKRN"
+      "reminder": true
     }
   ]
 }
