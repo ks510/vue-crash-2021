@@ -27,6 +27,7 @@ export default {
   },
   methods: {
     async addTask(task) {
+      // send request to add task
       const response = await fetch('/api/tasks', {
         method: 'POST',
         headers: {
@@ -35,11 +36,12 @@ export default {
         body: JSON.stringify(task),
       });
 
+      // if successful, add task to tasks array
       const data = await response.json();
-
-      this.tasks = [...this.tasks, task];
+      this.tasks = [...this.tasks, data];
     },
     async deleteTask(id) {
+      console.log(id);
       if (confirm('Are you sure?')) {
         const response = await fetch(`/api/tasks/${id}`, {
           method: 'DELETE',
